@@ -1,27 +1,17 @@
 import React from 'react';
-import { FlatList, Text, TouchableOpacity } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import styles from './styles';
+import ImgLocation from '../../../asserts/map-pin.png';
 
-const Categories = ({ categories, selectedCategory, onSelected }) => {
-  return (
-    <FlatList
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      style={styles.categoriesRoot}
-      data={categories}
-      renderItem={({ item }) => {
-        const selected = selectedCategory === item;
-        return (
-          <TouchableOpacity onPress={() => onSelected(item)}
-                            style={[styles.itemContainer, selected ? styles.itemContainerSelected : {}]}>
-            <Text
-              style={[styles.item, selected ? styles.itemSelected : {}]}>{item}</Text>
-          </TouchableOpacity>
-        );
-      }}
-    />
-
-  );
+const AttractionCard = ({ srcImage, title, subTitle, style }) => {
+  return (<View style={[styles.card, style]}>
+    <Image style={styles.image} source={srcImage} />
+    <Text style={styles.title}>{title}</Text>
+    <View style={styles.subTitleContainer}>
+      <Image style={styles.location} source={ImgLocation} />
+      <Text style={styles.subTitle}>{subTitle}</Text>
+    </View>
+  </View>);
 };
 
-export default React.memo(Categories);
+export default React.memo(AttractionCard);
