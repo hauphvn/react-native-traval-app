@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   item: {
     fontSize: 12,
-    color: 'rgba(0,0,0.5)',
+    color: 'rgba(0,0,0,0.5)',
     paddingVertical: 12,
   },
   itemSelected: {

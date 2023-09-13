@@ -5,7 +5,7 @@ import Home from './src/screens/Home';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView style={styles.homeRoot}>
+    <SafeAreaView style={styles.appRoot}>
       <StatusBar barStyle={'light-content'} />
       <Home />
     </SafeAreaView>

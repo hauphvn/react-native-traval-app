@@ -11,7 +11,7 @@ export default StyleSheet.create({
     fontSize: 12, fontWeight: '500', marginTop: 12, marginLeft: 6,
   }, subTitle: {
     fontSize: 10, fontWeight: '400',
-    color: 'rgba(0,0,0,.5)',
+    color: 'rgba(0, 0, 0, 0.5)',
 
   },
   subTitleContainer: {

@@ -33,7 +33,8 @@ const Home = () => {
       {/*  ))}*/}
       {/*</ScrollView>*/}
       <FlatList
-        ListEmptyComponent={<Text style={{ fontSize: 16, textAlign: 'center', marginTop: 24, color: 'rgba(0,0,0,.5)' }}>No
+        ListEmptyComponent={<Text
+          style={{ fontSize: 16, textAlign: 'center', marginTop: 24, color: 'rgba(0, 0, 0, 0.5)' }}>No
           data</Text>}
         ListHeaderComponent={() => (<>
           <View style={{ paddingHorizontal: 32, paddingTop: 32 }}>
