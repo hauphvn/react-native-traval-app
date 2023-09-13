@@ -1,25 +1,27 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
+const { width } = Dimensions.get('window');
 export default StyleSheet.create({
-  categoriesRoot: {
-    // backgroundColor: '#ccc',
-    maxHeight: 34,
-    marginRight: -30,
+  card: {
+    padding: 4, borderWidth: 1, borderColor: '#e2e2e2', borderRadius: 15,
+
+  }, image: {
+    width: (width - 96) / 2, height: 100, borderRadius: 15,
+  }, title: {
+    fontSize: 12, fontWeight: '500', marginTop: 12, marginLeft: 6,
+  }, subTitle: {
+    fontSize: 10, fontWeight: '400',
+    color: 'rgba(0,0,0,.5)',
+
   },
-  item: {
-    fontSize: 12,
-    color: 'rgba(0,0,0.5)',
-    paddingVertical: 12,
+  subTitleContainer: {
+    flexDirection: 'row',
+    marginBottom: 12, marginLeft: 6, marginTop: 4,
+    gap: 5,
   },
-  itemSelected: {
-    fontWeight: 'bold',
-    color: '#000000',
+  location: {
+    width: 13,
+    height: 13,
   },
-  itemContainer: {
-    marginRight: 17,
-  },
-  itemContainerSelected: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#4681a3',
-  },
+
 });
