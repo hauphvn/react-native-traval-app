@@ -8,7 +8,7 @@ export default StyleSheet.create({
   }, image: {
     width: (width - 96) / 2, height: 100, borderRadius: 15,
   }, title: {
-    fontSize: 12, fontWeight: '500', marginTop: 12, marginLeft: 6,
+    fontSize: 12, fontWeight: '500', marginTop: 12, marginLeft: 6, color: '#000000',
   }, subTitle: {
     fontSize: 10, fontWeight: '400',
     color: 'rgba(0, 0, 0, 0.5)',

@@ -7,9 +7,11 @@ import AttractionCard from '../../components/AttractionCard';
 import Image1 from '../../../asserts/image1.jpeg';
 import attractionList from '../../data/attractions.json';
 import categories from '../../data/categories.json';
+import { useNavigation } from '@react-navigation/native';
 
 const ALL = 'All';
 const Home = () => {
+  const navigation = useNavigation();
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [attractionData, setAttractionData] = useState([]);
   useEffect(() => {
@@ -34,10 +36,10 @@ const Home = () => {
       {/*</ScrollView>*/}
       <FlatList
         ListEmptyComponent={<Text
-          style={{ fontSize: 16, textAlign: 'center', marginTop: 24, color: 'rgba(0, 0, 0, 0.5)' }}>No
+          style={{ fontSize: 16, textAlign: 'center', marginTop: 0, color: 'rgba(0, 0, 0, 0.5)' }}>No
           data</Text>}
         ListHeaderComponent={() => (<>
-          <View style={{ paddingHorizontal: 32, paddingTop: 32 }}>
+          <View style={{ paddingHorizontal: 32, paddingTop: 10 }}>
             <Title title={'Where do'} style={{ fontWeight: 'normal' }} />
             <Title title={'you want to go'} />
             <Title title={'Explore Attraction'} style={styles.subTitle} />
@@ -52,7 +54,9 @@ const Home = () => {
         columnWrapperStyle={{ justifyContent: 'space-between', paddingHorizontal: 32 }}
         numColumns={2}
         data={attractionData} renderItem={({ item }) => (// <TouchableOpacity key={item.id}>
-        <AttractionCard style={{ marginBottom: 12 }} subTitle={item.city} srcImage={Image1} title={item.name} />
+        <AttractionCard
+          onPress={() => navigation.navigate('AttractionDetails', { item })}
+          style={{ marginBottom: 12 }} subTitle={item.city} srcImage={Image1} title={item.name} />
         // </TouchableOpacity>
       )} />
 
