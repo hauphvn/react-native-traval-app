@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   categoriesRoot: {
     // backgroundColor: '#ccc',
-    maxHeight: 34,
+    maxHeight: 50,
     marginRight: -30,
     marginBottom: 17,
   },
