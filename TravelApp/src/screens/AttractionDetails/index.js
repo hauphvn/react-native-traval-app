@@ -6,6 +6,7 @@ import ShareIcon from '../../../asserts/share.png';
 import Location from '../../../asserts/location.png';
 import Clock from '../../../asserts/clock.png';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import Share from 'react-native-share';
 
 const AttractionDetails = ({ navigation, route }) => {
   const { item } = route?.params || {};
@@ -24,6 +25,16 @@ const AttractionDetails = ({ navigation, route }) => {
     setUriMainImg(imgUri);
   }
 
+  function onShared() {
+    Share.open({ title: item?.name, message: 'Xin chào, Tôi muốn chia sẽ một địa điểm thú vị này!', url: mainImage })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        err && console.log(err);
+      });
+  }
+
   return (
     <ScrollView>
       <View style={styles.attractionDetailRoot}>
@@ -33,7 +44,7 @@ const AttractionDetails = ({ navigation, route }) => {
             <TouchableOpacity hitSlop={8} style={[styles.iconWrapper, styles.boxShadowIcon]} onPress={onGoBack}>
               <ImageBackground style={styles.icon} source={GoBackIcon} />
             </TouchableOpacity>
-            <TouchableOpacity hitSlop={8} style={[styles.iconWrapper, styles.boxShadowIcon]}>
+            <TouchableOpacity hitSlop={8} style={[styles.iconWrapper, styles.boxShadowIcon]} onPress={onShared}>
               <ImageBackground style={styles.icon} source={ShareIcon} />
             </TouchableOpacity>
           </View>
@@ -58,7 +69,7 @@ const AttractionDetails = ({ navigation, route }) => {
           <View style={styles.basic}>
             <View>
               <Text style={[styles.textBig, styles.name]}>{item.name}</Text>
-              <Text style={[styles.subTitle]}>{item.country}</Text>
+              <Text style={[styles.subTitle]}>{item.city}</Text>
             </View>
             <Text style={[styles.textBig]}>{item.entry_price}</Text>
           </View>

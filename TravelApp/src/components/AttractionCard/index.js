@@ -5,7 +5,7 @@ import ImgLocation from '../../../asserts/map-pin.png';
 
 const AttractionCard = ({ srcImage, title, subTitle, style, onPress }) => {
   return (<TouchableOpacity onPress={onPress} style={[styles.card, style]}>
-    <Image style={styles.image} source={srcImage} />
+    <Image style={styles.image} source={{ uri: srcImage }} />
     <Text style={styles.title}>{title}</Text>
     <View style={styles.subTitleContainer}>
       <Image style={styles.location} source={ImgLocation} />
