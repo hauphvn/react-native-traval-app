@@ -75,4 +75,14 @@ export default StyleSheet.create({
   locationItem: {},
   timeWrapper: { gap: 8, flexDirection: 'row', alignItems: 'center' },
   timeItem: { fontWeight: 'bold' },
+  map: {
+    // ...StyleSheet.absoluteFillObject,
+    height: 200,
+    width: '100%',
+    borderRadius: 10,
+    marginBottom: 20,
+    // justifyContent: 'flex-end',
+    // alignItems: 'center',
+
+  },
 });
