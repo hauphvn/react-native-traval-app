@@ -4,15 +4,14 @@ import styles from './styles';
 import Title from '../../components/Title';
 import Categories from '../../components/Categories';
 import AttractionCard from '../../components/AttractionCard';
-import Image1 from '../../../asserts/image1.jpeg';
 import attractionList from '../../data/attractions.json';
 import categories from '../../data/categories.json';
 import { useNavigation } from '@react-navigation/native';
 
-const ALL = 'All';
+const ALL = 'Tấc cả';
 const Home = () => {
   const navigation = useNavigation();
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState('Tấc cả');
   const [attractionData, setAttractionData] = useState([]);
   useEffect(() => {
     setAttractionData(attractionList);
@@ -36,13 +35,14 @@ const Home = () => {
       {/*</ScrollView>*/}
       <FlatList
         ListEmptyComponent={<Text
-          style={{ fontSize: 16, textAlign: 'center', marginTop: 0, color: 'rgba(0, 0, 0, 0.5)' }}>No
-          data</Text>}
+          style={{ fontSize: 16, textAlign: 'center', marginTop: 0, color: 'rgba(0, 0, 0, 0.5)' }}>Không tìm thấy thông
+          tin
+        </Text>}
         ListHeaderComponent={() => (<>
           <View style={{ paddingHorizontal: 32, paddingTop: 10 }}>
-            <Title title={'Where do'} style={{ fontWeight: 'normal' }} />
-            <Title title={'you want to go'} />
-            <Title title={'Explore Attraction'} style={styles.subTitle} />
+            <Title title={'Xách balo '} style={{ fontWeight: 'normal' }} />
+            <Title title={'lên và đi thôi'} />
+            <Title title={'Khám phá những nơi thú vị'} style={styles.subTitle} />
           </View>
           <Categories
             style={{ marginLeft: 32 }}
@@ -56,7 +56,7 @@ const Home = () => {
         data={attractionData} renderItem={({ item }) => (// <TouchableOpacity key={item.id}>
         <AttractionCard
           onPress={() => navigation.navigate('AttractionDetails', { item })}
-          style={{ marginBottom: 12 }} subTitle={item.city} srcImage={Image1} title={item.name} />
+          style={{ marginBottom: 12 }} subTitle={item.city} srcImage={item.images[0]} title={item.name} />
         // </TouchableOpacity>
       )} />
 
